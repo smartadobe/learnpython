@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>纪念币预售首页_中国农业银行</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="WT.cg_abc" content="中国农业银行;纪念币预售首页" />
+    <meta content="IE=7" http-equiv="X-UA-Compatible" />
+
+    <link href="https://ptbe.cdn-static.abchina.com/coin/Content/css/base.css" rel="stylesheet"/>
+
+    <link href="https://ptbe.cdn-static.abchina.com/coin/Content/css/common.css" rel="stylesheet"/>
+
+    <link href="https://ptbe.cdn-static.abchina.com/coin/Content/css/sqez.css" rel="stylesheet"/>
+
+    <link href="https://ptbe.cdn-static.abchina.com/coin/Content/ui/jquery.ui.all.css" rel="stylesheet"/>
+
+    <script src="https://ptbe.cdn-static.abchina.com/coin/Scripts/jquery-1.4.1.min.js"></script>
+
+    <script src="/coin/Scripts/transferaddress.js"></script>
+
+    <script src="https://ptbe.cdn-static.abchina.com/coin/Scripts/jquery-1.8.3.js"></script>
+
+    <script src="https://ptbe.cdn-static.abchina.com/coin/Scripts/jquery.ui.datepicker-zh-CN.js"></script>
+
+    <script src="https://ptbe.cdn-static.abchina.com/coin/Scripts/jquery-ui.js"></script>
+
+    <script src="https://ptbe.cdn-static.abchina.com/coin/Scripts/dcs_tag.js"></script>
+
+    <script src="https://ptbe.cdn-static.abchina.com/coin/Scripts/Common_V2.js"></script>
+
+    <!--[if IE 6]>
+        <script src="https://ptbe.cdn-static.abchina.com/coin/Scripts/TranslucenPng.js"></script>
+
+        <script type="text/javascript">TranslucenPng.fix('*');</script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        //注册事件
+        function MemberRegisterDialog() {
+            showDialogbyUrl("https://app.abchina.com/static/sns/RegisterGuide/", 440);
+        }
+        function showDialogbyUrl(url, dialogHeight) {
+            //viewWidth 视口宽度，viewHeight 视口高度 兼容常见浏览器
+            var viewWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var viewHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+            var iFrameWidth = 900; //iframe 盒子的宽
+            var iFrameHeight = 460; //iframe 盒子的高
+            var yOffset = (viewHeight - iFrameHeight) / 2;  //偏移量换算公式
+            var xOffset = (viewWidth - iFrameWidth) / 2; //偏移量换算公式
+
+            $('<iframe id="frm" frameborder="0"  style="padding-left:12px; padding-top:10px;background:#fff;" scrolling="no" src="' + url + '" />').dialog({
+                width: 900,
+                title: '注册',
+                modal: true,
+                height: dialogHeight,
+                position: [xOffset, yOffset],
+                draggable: false,//不能拖动
+                closeOnEscape: true,
+                resizable: false
+            }).width(900).height(dialogHeight);
+
+        }
+        function Brancheapply() {
+            window.location.href = "/coin/coin/DefaultQuery";
+        }
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?aaca25918a94e5c351646b457e25211d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div id="page_description" style="position:absolute; left:-9999px; top:-9999px;" tabindex="0">纪念币预约页面，根据该业务办理特点，为了使您获得更好的无障碍体验，请在家人陪伴下完成操作</div>
+    <div class="top">
+    <div class="topWrap fn-clear">
+        <div id="login_yes">
+            <ul class="top-left">
+                <li>欢迎登录中国农业银行门户网站</li>
+                <!--<li>
+                    您好！
+                    <span class="text-orange" style="line-height:31px"><a id="btnOut" href="hhh">［退出］</a></span>
+                </li>-->
+            </ul>
+            <ul class="top-right">
+                <li>本网站已支持IPv6</li>
+                <li><span><a addresstransfer href="https://www.abchina.com">官网首页</a></span></li>
+            </ul>
+        </div>
+        <div id="login_no">
+            <ul class="top-left">
+                <li>您好！欢迎访问中国农业银行门户网站</li>
+            </ul>
+            <ul class="top-right">
+                <li>本网站已支持IPv6</li>
+                <!--<li>
+                    <span class="text-orange" style="line-height:31px"><a id="btnIn" href="hhh">登录</a></span>
+                </li>-->
+                <li><span><a addresstransfer href="https://www.abchina.com">官网首页</a></span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (loginState == 1) {
+            $('#login_no').hide();
+            if (removeLS) {
+                $('#btnOut').hide();
+            }
+            else
+                $('#btnOut').attr('href', logoutUrl)
+        }
+        else {
+            $('#login_yes').hide();
+            if (removeLS) {
+                $('#btnIn').hide();
+            }
+            else
+                $('#btnIn').attr('href', loginUrl)
+        }
+
+    });
+</script>
+<div class="logo-header">
+    <h1><a class="logo" addresstransfer href="https://www.abchina.com"></a></h1>
+</div>
+
+
+    <div class="nav">
+<ul class="nav-left">
+<li><a href = "/CreditCardApp/Home/Index"></a></li>
+</ul>
+<ul class="nav-center">
+<li id = "licard"  style = "width:170px;"><a href = "/CreditCardApp/CreditcardsInfo/CreditIndex" > 信用卡 </a></li>
+<li  style = "width:170px;"><a href = "/onlinebook/"> 在线预约 </a></li >
+<li  style = "width:170px;"><a href = "/entapply/"> 企业预填单 </a></li>
+<li  style = "width:170px;"><a href = "/onlinetrade/LossSingle/QuestLossSingle" style = "width:170px;"> 存单挂失查询 </a></li>
+<li  class='act'  style = "width:170px;"><a href = "/coin/coin/Index"> 纪念币 </a></li>
+</ul>
+<div class="nav-right"></div>
+</div>
+;
+    <script type="text/javascript">
+        var title = "";
+        var loginState = 0
+        var removeLS = 0;
+        var logoutUrl ='/CreditCardApp/CreditcardsInfo/logout?returnUrl=/coin/coin/Index';
+        var loginUrl= '';
+    </script>
+    <div class="wrap-full">
+
+
+                <div class="apply-step-tit"><span>测试1202(测试计划，预约无效）</span></div>
+            <div class="apply-step-con pt28 pb28 text-center">
+                <table class="tab-queue-search text-center">
+                    <tr>
+                        <td style="text-align: left; font-weight: bold" colspan="4">
+                            测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            预约开始时间：
+                        </td>
+                        <td style="text-align: left;">
+                            20211202
+                        </td>
+                        <td style="text-align: left;">
+                            预约结束时间：
+                        </td>
+                        <td style="text-align: left;">
+
+
+
+                            20211201
+                        </td>
+
+                    </tr>
+                    <tr>
+
+
+                        <td style="text-align: left;">
+                            兑换开始时间：
+                        </td>
+                        <td style="text-align: left;">
+                            20211202
+                        </td>
+                        <td style="text-align: left;">
+                            兑换结束时间：
+                        </td>
+                        <td style="text-align: left;">
+                            20211202
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn-submit" data-role="none" value="预 约" type="button" onclick="CoinRequest('I104', '20211202 18:00:00','1')" />
+                            <input class="btn-submit" data-role="none" value="查询/修改" type="button" onclick="CoinSearch('I104')" />
+                            <input class="btn-submit" data-role="none" value="网点查询" type="button" onclick="CoinAppointmentInfo('I104')" />
+                        </td>
+                    </tr>
+                </table>
+                <div class="apply-step-con pt28 pb28 text-left" id=I104 title="预约提示" style="display: none ;text-indent:2em">
+                        <span>测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。测试计划，预约无效。</span>    <div style="height:10px"></div>
+    <button class=" float-left" style="font-size: 12px; text-indent: 0; height: 30px; color: white; width: 160px; margin-left: 75px; border-radius: 13px; border-color: #009999; padding: 5px 30px 12px 30px; background-color: #009999" type="button" onclick="Verification('I104')">同意并继续预约</button>
+    <div style="height:50px"></div>
+    <button class=" float-left" style="font-size: 12px; text-indent: 0; height: 30px; color: white; width: 160px; margin-left: 75px; border-radius: 13px; border-color: #009999; padding: 5px 30px 12px 30px; background-color: #009999" type="button" onclick="Close()">不同意，放弃预约</button>
+
+
+
+
+</div>
+            </div>
+                <div class="apply-step-tit"><span>建党100周年币第二批(仅限延期地区)</span></div>
+            <div class="apply-step-con pt28 pb28 text-center">
+                <table class="tab-queue-search text-center">
+                    <tr>
+                        <td style="text-align: left; font-weight: bold" colspan="4">
+                            根据人民银行安排，本次兑换仅限以下地区：山东省日照市，兑换日期11月25日至12月1日；贵州省，兑换日期：11月25日至12月1日；青海省，兑换日期：11月29日至12月5日。其余延期地区的兑换时间以当地人民银行公告为准。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            预约开始时间：
+                        </td>
+                        <td style="text-align: left;">
+                            20210831
+                        </td>
+                        <td style="text-align: left;">
+                            预约结束时间：
+                        </td>
+                        <td style="text-align: left;">
+
+
+
+                            20210904
+                        </td>
+
+                    </tr>
+                    <tr>
+
+
+                        <td style="text-align: left;">
+                            兑换开始时间：
+                        </td>
+                        <td style="text-align: left;">
+                            20211125
+                        </td>
+                        <td style="text-align: left;">
+                            兑换结束时间：
+                        </td>
+                        <td style="text-align: left;">
+                            20211205
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input class="btn-submit" data-role="none" value="预 约" type="button" onclick="CoinRequest('I095', '20210831 22:30:00','1')" />
+                            <input class="btn-submit" data-role="none" value="查询/修改" type="button" onclick="CoinSearch('I095')" />
+                            <input class="btn-submit" data-role="none" value="网点查询" type="button" onclick="CoinAppointmentInfo('I095')" />
+                        </td>
+                    </tr>
+                </table>
+                <div class="apply-step-con pt28 pb28 text-left" id=I095 title="预约提示" style="display: none ;text-indent:2em">
+                       <span>尊敬的客户，请您使用第二代居民身份证原件预约兑换普通纪念币普制币（钞）。您的预约是否成功需在预约期结束后经中国人民银行核查方能确定。您可在2021年09月08日0时后通过我行<span style="font-weight:bold">电子渠道或柜面渠道</span></span>
+                             <span>查询结果。核查通过，表示您的预约成功，可正常办理兑换业务；核查未通过，表示您的预约未成功，可能存在跨行重复预约、预约后未兑换等情况。您可在<span style="font-weight:bold">核实期内</span><span>（2021年09月08日-2021年09月14日）持本人第二代居民身份证原件前往预约网点办理解锁业务，以保留本次兑换资格。</span></span>
+    <div style="height:10px"></div>
+    <button class=" float-left" style="font-size: 12px; text-indent: 0; height: 30px; color: white; width: 160px; margin-left: 75px; border-radius: 13px; border-color: #009999; padding: 5px 30px 12px 30px; background-color: #009999" type="button" onclick="Verification('I095')">同意并继续预约</button>
+    <div style="height:50px"></div>
+    <button class=" float-left" style="font-size: 12px; text-indent: 0; height: 30px; color: white; width: 160px; margin-left: 75px; border-radius: 13px; border-color: #009999; padding: 5px 30px 12px 30px; background-color: #009999" type="button" onclick="Close()">不同意，放弃预约</button>
+
+
+
+
+</div>
+            </div>
+
+        <script type="text/javascript">
+
+    function notification(issueid) {
+        $("#"+ issueid+ "").dialog(
+      {
+          width: 330,
+          draggable: false,
+          modal: true,
+          position: { 'center': 'top' },
+          open: function (event, ui) {
+              $(".ui-dialog-titlebar-close", $(this).parent()).hide();
+          }
+
+
+      });
+    }
+
+    function Verification(issueid) {
+        window.location.href = "/coin/coin/OrdinaryCoinRequest?issueid=" + issueid +"&batchOrder=1&t=" + new Date().getTime();
+    }
+    function VerificationWithBatch(issueid,batchorder) {
+        window.location.href = "/coin/coin/OrdinaryCoinRequest?issueid=" + issueid +"&batchOrder= "+batchorder+"&t=" + new Date().getTime();
+    }
+    function Close() {
+        window.location.href = "/coin/";
+
+              //  javascript:history.go(-1);
+
+            }
+
+
+            function CoinRequest(issueid, begintime,checkstatus) {
+
+                //var t = new Date();
+                //var year = t.getFullYear();
+                //var month = t.getMonth() + 1;
+                //var day = t.getDate();
+                //var h = t.getHours();
+                //var m = t.getMinutes();
+                //var s = t.getSeconds();
+                //var seperator = ":";
+                //if (month >= 1 && month <= 9) {
+                //    month = "0" + month;
+                //}
+                //if (day >= 1 && day <= 9) {
+                //    day = "0" + day;
+                //}
+                //if (h >= 1 && h <= 9) {
+                //    h = "0" + h;
+                //}
+                //if (m >= 1 && m <= 9) {
+                //    m = "0" + m;
+                //}
+                //if (s >= 0 && s <= 9) {
+                //    s = "0" + s;
+                //}
+
+                //var currenttime = year.toString() + month.toString() + day.toString() + " " + h.toString() + seperator + m.toString() + seperator + s.toString();
+                ////alert(currenttime);
+                ////alert(begintime);
+                //if (currenttime < begintime) {
+                //    alert("预约暂未开放，请耐心等待");
+                //}
+
+                //else {
+                    if (checkstatus=="1")
+                        notification(issueid);
+                    else
+                        window.location.href ="/coin/coin/OrdinaryCoinRequest?issueid=" + issueid +"&batchOrder=1&t=" + new Date().getTime();
+                //}
+            }
+
+
+            function CoinRequestWithBatchOrder(issueid, begintime,checkstatus,batchorder) {
+
+                //var t = new Date();
+                //var year = t.getFullYear();
+                //var month = t.getMonth() + 1;
+                //var day = t.getDate();
+                //var h = t.getHours();
+                //var m = t.getMinutes();
+                //var s = t.getSeconds();
+                //var seperator = ":";
+                //if (month >= 1 && month <= 9) {
+                //    month = "0" + month;
+                //}
+                //if (day >= 1 && day <= 9) {
+                //    day = "0" + day;
+                //}
+                //if (h >= 1 && h <= 9) {
+                //    h = "0" + h;
+                //}
+                //if (m >= 1 && m <= 9) {
+                //    m = "0" + m;
+                //}
+                //if (s >= 0 && s <= 9) {
+                //    s = "0" + s;
+                //}
+
+                //var currenttime = year.toString() + month.toString() + day.toString() + " " + h.toString() + seperator + m.toString() + seperator + s.toString();
+                ////alert(currenttime);
+                ////alert(begintime);
+                //if (currenttime < begintime) {
+                //    alert("预约暂未开放，请耐心等待");
+                //}
+
+                //else {
+                    if (checkstatus=="1")
+                        notification(issueid + batchorder);
+                    else
+                        window.location.href = "/coin/coin/OrdinaryCoinRequest?issueid=" + issueid + "&t=" + new Date().getTime() + "&batchOrder="+batchorder;
+        //}
+    }
+    function CoinSearch(issueid) {
+        window.location.href = "/coin/coin/CoinSearch?issueid=" + issueid + "&t=" + new Date().getTime();
+            }
+    function CoinAppointmentInfo(issueid) {
+        window.location.href = "/coin/coin/CoinAppointmentInfo?issueid=" + issueid + "&t=" + new Date().getTime();
+    }
+        </script>
+
+
+    </div>
+    <div class="footer-content fn-clear">
+        <div class="footer fn-clear">
+            <ul class="footer-nav fn-clear">
+                <li><a href="https://www.abchina.com/cn/AboutABC/ABCInformation/Branch/jingneifenzhijigou/" target="_blank" rel="nofollow noopener noreferrer" class="footer-location">分支机构</a></li>
+                <li><a href="https://www.abchina.com/cn/PublicPlate/documents/200911/t20091130_16583.htm" target="_blank" rel="nofollow noopener noreferrer">网站声明</a></li>
+                <li><a href="https://app.abchina.com/branch/" target="_blank" rel="nofollow noopener noreferrer">网点查询</a></li>
+                <li><a href="https://www.abchina.com/cn/PublicPlate/WebLink/websitemap/" target="_blank" rel="nofollow noopener noreferrer">网站地图</a></li>
+                <li><a href="https://www.abchina.com/cn/AboutABC/ContactUs/" target="_blank" rel="nofollow noopener noreferrer">联系我们</a></li>
+                <li class="bgNone"><a href="https://www.abchina.com/cn/EBanking/CustomerServiceCenter/CustomerServiceCenter/default.htm" target="_blank" rel="nofollow noopener noreferrer">客服热线：95599</a></li>
+            </ul>
+            <ul class="footer-copyright fn-clear">
+                <li>中国农业银行版权所有</li>
+                <li class="bgNone"><a href='http://www.miibeian.gov.cn/' target='_blank' rel="noopener noreferrer">京ICP备05049539</a></li>
+            </ul>
+            <div class="footer-ext fn-clear">
+                <a class="footer-logo" href="https://search.szfw.org/cert/l/CX20120927001787002018" target="_blank" rel="nofollow noopener noreferrer"></a>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://ptbe.cdn-static.abchina.com/coin/Scripts/base.js"></script>
+
+</body>
+</html>
