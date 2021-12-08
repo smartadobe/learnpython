@@ -68,4 +68,4 @@ cara(1)
 print(locals())
 
 print(globals())
-
+print('你好啊')
