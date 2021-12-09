@@ -27,7 +27,7 @@
 #     print(a)
 #     f.writable()
 
-#t模式
+# t模式
 # with open(r'C:\Users\016456310\Desktop\主线.txt',mode='r', encoding='gbk') as f:
 #     a = f.read(3)#移动的是3个字符
 #     print(a)
@@ -36,7 +36,7 @@
 #     f.seek(29,0)
 #     c = f.read(10)
 #     print(c)
-#b模式
+# b模式
 # with open(r'C:\Users\016456310\Desktop\主线.txt',mode='rb') as f:
 #     a = f.read()#移动的是3Bytes
 #     print(a.decode('gbk'))
@@ -45,25 +45,29 @@
 #     line1 = f.readline()
 #     print(line1.decode('gbk'))
 
-#打开一个gbk编码的文件，将里面的内容复制到另外一个文件中，编码格式是utf8
-with open(r'C:\Users\016456310\Desktop\主线.txt',mode='rb') as read_f, open(r'C:\Users\016456310\Desktop\主线1.txt',mode='wb') as write_f:
+# 打开一个gbk编码的文件，将里面的内容复制到另外一个文件中，编码格式是utf8
+with open(r'C:\Users\016456310\Desktop\主线.txt', mode='rb') as read_f, open(r'C:\Users\016456310\Desktop\主线1.txt',mode='wb') as write_f:
     # b = read_f.read()
     print(read_f.tell())
-    read_f.seek(0,0)
+    read_f.seek(0, 0)
     # a = read_f.read().decode('gbk').encode('utf-8')
     # write_f.write(a)
     print(write_f.tell())
 
-with open(r'C:\Users\016456310\Desktop\主线1.txt',mode='rb') as f:
+with open(r'C:\Users\016456310\Desktop\主线1.txt', mode='rb') as f:
     f.read(7)
     f.read(3)
     line1 = f.readline().decode('utf-8')
 
     print(line1)
-def cara(ddd,x=1):
+
+
+def cara(ddd, x=1):
     woshijubu = 'jubu'
-    print('局部变量：%s'%locals())
-    print('全局变量：%s'%globals())
+    print('局部变量：%s' % locals())
+    print('全局变量：%s' % globals())
+
+
 cara(1)
 print(locals())
 
