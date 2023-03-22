@@ -1,93 +1,91 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# Python version 2.7.13 or 3.7.2
-
+# coding:UTF-8
+import datetime
 import random
-import re
-# 导入某个模块的部分类或方法
-from datetime import datetime, timedelta
 
-# 导入常量并重命名
-import constant as const
+'''
+排列顺序从左至右依次为：六位数字地址码，八位数字出生日期码，三位数字顺序码和一位校验码:
+1、地址码 
+表示编码对象常住户口所在县(市、旗、区)的行政区域划分代码，按GB/T2260的规定执行。
+2、出生日期码 
+表示编码对象出生的年、月、日，按GB/T7408的规定执行，年、月、日代码之间不用分隔符。 
+3、顺序码 
+表示在同一地址码所标识的区域范围内，对同年、同月、同日出生的人编定的顺序号，顺序码的奇数分配给男性，偶数分配给女性。 
+4、校验码计算步骤
+    (1)十七位数字本体码加权求和公式 
+    S = Sum(Ai * Wi), i = 0, ... , 16 ，先对前17位数字的权求和 
+    Ai:表示第i位置上的身份证号码数字值(0~9) 
+    Wi:7 9 10 5 8 4 2 1 6 3 7 9 10 5 8 4 2 （表示第i位置上的加权因子）
+    (2)计算模 
+    Y = mod(S, 11)
+    (3)根据模，查找得到对应的校验码 
+    Y: 0 1 2 3 4 5 6 7 8 9 10 
+    校验码: 1 0 X 9 8 7 6 5 4 3 2
+'''
 
 
-class IdNumber(str):
+class getRandomIDcard:
+    """
+    生成随机身份证号码
+    性别可指定，默认随机，1-男、2-女
+    """
 
-    def __init__(self, id_number):
-        super(IdNumber, self).__init__()
-        self.id = id_number
-        self.area_id = int(self.id[0:6])
-        self.birth_year = int(self.id[6:10])
-        self.birth_month = int(self.id[10:12])
-        self.birth_day = int(self.id[12:14])
+    def __init__(self):
+        self.sex = 0
 
-    def get_area_name(self):
-        """根据区域编号取出区域名称"""
-        return const.AREA_INFO[self.area_id]
+    def getCheckBit(self, num17):
+        """
+        获取身份证最后一位，即校验码
+        :param num17: 身份证前17位字符串
+        :return: 身份证最后一位
+        """
+        Wi = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]
+        checkCode = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2']
+        zipWiNum17 = zip(list(num17), Wi)
+        S = sum(int(i) * j for i, j in zipWiNum17)
+        Y = S % 11
+        return checkCode[Y]
 
-    def get_birthday(self):
-        """通过身份证号获取出生日期"""
-        return "{0}-{1}-{2}".format(self.birth_year, self.birth_month, self.birth_day)
+    def getAddrCode(self):
+        """
+        获取身份证前6位，即地址码
+        :return: 身份证前6位
+        """
+        from addr import addr
+        addrIndex = random.randint(0, len(addr) - 1)
+        return addr[addrIndex]
 
-    def get_age(self):
-        """通过身份证号获取年龄"""
-        now = (datetime.now() + timedelta(days=1))
-        year, month, day = now.year, now.month, now.day
+    def getBirthday(self, start="1950-01-01", end="2017-12-30"):
+        """
+        获取身份证7到14位，即出生年月日
+        :param start: 出生日期合理的起始时间
+        :param end: 出生日期合理的结束时间
+        :return: 份证7到14位
+        """
+        days = (datetime.datetime.strptime(end, "%Y-%m-%d") - datetime.datetime.strptime(start, "%Y-%m-%d")).days + 1
+        birthday = datetime.datetime.strptime(start, "%Y-%m-%d") + datetime.timedelta(random.randint(0, days))
+        return datetime.datetime.strftime(birthday, "%Y%m%d")
 
-        if year == self.birth_year:
-            return 0
+    def getRandomIdCard(self, sex=0):
+        """
+        获取随机身份证
+        :param sex: 性别，默认为随机，1-男，2-女
+        :return: 返回一个随机身份证
+        """
+        idNumber, addrName = self.getAddrCode()
+        idCode = str(idNumber) + self.getBirthday()
+        for i in range(2):
+            idCode += str(random.randint(0, 9))
+
+        if sex not in (1, 2) and self.sex == 0:
+            self.sex = random.randint(1, 2)
         else:
-            if self.birth_month > month or (self.birth_month == month and self.birth_day > day):
-                return year - self.birth_year - 1
-            else:
-                return year - self.birth_year
+            self.sex = sex
 
-    def get_sex(self):
-        """通过身份证号获取性别， 女生：0，男生：1"""
-        return int(self.id[16:17]) % 2
-
-    def get_check_digit(self):
-        """通过身份证号获取校验码"""
-        check_sum = 0
-        for i in range(0, 17):
-            check_sum += ((1 << (17 - i)) % 11) * int(self.id[i])
-        check_digit = (12 - (check_sum % 11)) % 11
-        return check_digit if check_digit < 10 else 'X'
-
-    @classmethod
-    def verify_id(cls, id_number):
-        """校验身份证是否正确"""
-        if re.match(const.ID_NUMBER_18_REGEX, id_number):
-            check_digit = cls(id_number).get_check_digit()
-            return str(check_digit) == id_number[-1]
-        else:
-            return bool(re.match(const.ID_NUMBER_15_REGEX, id_number))
-
-    @classmethod
-    def generate_id(cls, sex=0):
-        """随机生成身份证号，sex = 0表示女性，sex = 1表示男性"""
-
-        # 随机生成一个区域码(6位数)
-        id_number = str(random.choice(list(const.AREA_INFO.keys())))
-        # 限定出生日期范围(8位数)
-        start, end = datetime.strptime("1960-01-01", "%Y-%m-%d"), datetime.strptime("2000-12-30", "%Y-%m-%d")
-        birth_days = datetime.strftime(start + timedelta(random.randint(0, (end - start).days + 1)), "%Y%m%d")
-        id_number += str(birth_days)
-        # 顺序码(2位数)
-        id_number += str(random.randint(10, 99))
-        # 性别码(1位数)
-        id_number += str(random.randrange(sex, 10, step=2))
-        # 校验码(1位数)
-        return id_number + str(cls(id_number).get_check_digit())
+        idCode += str(random.randrange(self.sex, 9, 2))
+        idCode += self.getCheckBit(idCode)
+        return idCode
 
 
-if __name__ == '__main__':
-    random_sex = random.randint(0, 1)  # 随机生成男(1)或女(0)
-    print(IdNumber.generate_id(random_sex))  # 随机生成身份证号
-    print(IdNumber('410326199507103197').area_id)  # 地址编码:410326
-    print(IdNumber('410326199507103197').get_area_name())  # 地址:河南省洛阳市汝阳县
-    print(IdNumber('410326199507103197').get_birthday())  # 生日:1995-7-10
-    print(IdNumber('410326199507103197').get_age())  # 年龄:23(岁)
-    print(IdNumber('410326199507103197').get_sex())  # 性别:1(男)
-    print(IdNumber('410326199507103197').get_check_digit())  # 校验码:7
-    print(IdNumber.verify_id('410326199507103198'))  # 检验身份证是否正确:False
+if __name__ == "__main__":
+    for item in range(0, 10):
+        print(getRandomIDcard().getRandomIdCard())

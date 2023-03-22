@@ -1,21 +1,13 @@
-print('开始导入eee模块')
-import eee
-print('结束导入eee模块')
-x=1
-y = [1,2]
-def get():
-    print(x)
-def change():
-    global x
-    x=0
-    y.append(3)
-class Foo:
-    def func(self):
-       print('from the func')
-print(x)
-print(y)
-change()
-print('---------------')
-print(x)
-print(y)
-print('foo模块名称空间包括：',globals())
+from socket import *
+
+client=socket(AF_INET,SOCK_STREAM)
+client.connect(('127.0.0.1',8080))
+
+
+while True:
+    msg=input('>>: ').strip()
+    if not msg:continue
+
+    client.send(msg.encode('utf-8'))
+    msg=client.recv(1024)
+    print(msg.decode('utf-8'))
